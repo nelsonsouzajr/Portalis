@@ -1,7 +1,69 @@
 // src/pages/RegistroEntradaSaida.tsx
+import { useState } from 'react';
+import BackButton from '../components/BackButton';
+
+
 const RegistroEntradaSaida = () => {
-    return <h1>Pagina de Registro de Entrada e Saida</h1>;
+  const [registro, setRegistro] = useState('');
+  const [historico, setHistorico] = useState([
+    { id: 1, nome: 'Fernando Almeida', tipo: 'Entrada', data: '17/04/2025 - 10:45' },
+    { id: 2, nome: 'Julia Costa', tipo: 'Saída', data: '17/04/2025 - 11:02' },
+  ]);
+
+  const handleRegistrar = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!registro) return;
+    const novoRegistro = {
+      id: historico.length + 1,
+      nome: registro,
+      tipo: 'Entrada', // Pode ser alterado para 'Saída' se necessário
+      data: new Date().toLocaleString(),
+    };
+    setHistorico([novoRegistro, ...historico]);
+    setRegistro('');
   };
-  
-  export default RegistroEntradaSaida;
-  
+
+  return (
+    <div className="p-8 min-h-screen bg-gray-100">
+      <h1 className="text-2xl font-bold mb-6 text-center">Registro de Entrada e Saída</h1>
+
+      <form onSubmit={handleRegistrar} className="mb-6 max-w-xl mx-auto bg-white p-6 rounded shadow-md">
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+          <input
+            type="text"
+            value={registro}
+            onChange={(e) => setRegistro(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300"
+            placeholder="Digite o nome do visitante ou morador"
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded"
+        >
+          Registrar Entrada
+        </button>
+      </form>
+
+      <div className="max-w-3xl mx-auto bg-white p-6 rounded shadow">
+        <h2 className="text-xl font-semibold mb-4">Histórico de Registros</h2>
+        <ul>
+          {historico.map((r) => (
+            <li key={r.id} className="border-b py-2">
+              <span className="font-medium">{r.nome}</span> - <span>{r.tipo}</span> <span className="text-gray-500">({r.data})</span>
+            </li>
+          ))}
+        </ul>
+        <div className="p-8 min-h-screen bg-gray-100">
+      <BackButton />
+
+      <h1 className="text-2xl font-bold mb-6 text-center">Configurações</h1>
+      <p>Aqui você pode configurar suas preferências...</p>
+    </div>
+      </div>
+    </div>
+  );
+};
+
+export default RegistroEntradaSaida;
