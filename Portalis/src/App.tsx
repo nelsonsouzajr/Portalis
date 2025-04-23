@@ -23,10 +23,10 @@ function App() {
           <div>
             <img 
               src={portalisLogo} 
-              className="logo"  
-              alt="Portalis Logo" 
+              className="logo align-center w-1/2 h-1/2 mx-auto mt-10"  
+              alt="Logo Portalis" 
             />
-            <h1 className="text-logo">Portalis</h1>
+            
           </div>
         )}
 
