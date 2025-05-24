@@ -26,10 +26,10 @@ const NotificacaoAutorizacao = () => {
   };
 
   return (
-    <div className="p-8 min-h-screen bg-gray-100">
+    <div className="p-8 min-h-screen bg-gray-750">
       <h1 className="text-2xl font-bold mb-6 text-center">Notificações e Autorizações</h1>
 
-      <form onSubmit={handleEnviar} className="mb-6 max-w-xl mx-auto bg-white p-6 rounded shadow-md">
+      <form onSubmit={handleEnviar} className="mb-6 max-w-xl mx-auto bg-gray-600 p-6 rounded shadow-md">
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700 mb-1">Nome do Visitante</label>
           <input
@@ -57,7 +57,7 @@ const NotificacaoAutorizacao = () => {
         </button>
       </form>
 
-      <div className="max-w-3xl mx-auto bg-white p-6 rounded shadow">
+      <div className="max-w-3xl mx-auto bg-gray-600 p-6 rounded shadow">
         <h2 className="text-xl font-semibold mb-4">Autorizações Recentes</h2>
         <ul>
           {autorizacoes.map((a) => (
@@ -66,11 +66,10 @@ const NotificacaoAutorizacao = () => {
             </li>
           ))}
         </ul>
-        <div className="p-8 min-h-screen bg-gray-100">
+        <div className="p-8 bg-gray-750">
       <BackButton />
 
-      <h1 className="text-2xl font-bold mb-6 text-center">Configurações</h1>
-      <p>Aqui você pode configurar suas preferências...</p>
+      
     </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ const ControleAcesso = () => {
   );
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
+    <div className="p-8 bg-gray-750 min-h-screen">
       <h1 className="text-2xl font-bold mb-6 text-center">Controle de Acesso</h1>
 
       <div className="mb-4 flex justify-center">
@@ -53,11 +53,10 @@ const ControleAcesso = () => {
             ))}
           </tbody>
         </table>
-        <div className="p-8 min-h-screen bg-gray-100">
+        <div className="p-8 min-h-screen bg-gray-750">
       <BackButton />
 
-      <h1 className="text-2xl font-bold mb-6 text-center">Configurações</h1>
-      <p>Aqui você pode configurar suas preferências...</p>
+      
     </div>
       </div>
     </div>
